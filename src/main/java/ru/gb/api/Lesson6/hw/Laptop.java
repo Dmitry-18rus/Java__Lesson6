@@ -80,6 +80,33 @@ public class Laptop {
         System.out.println("Внесен новый ноутбук с id = " + n.id);
     }
 
+    private static void filterOperration(Scanner scanner) {
+        System.out.println("Введите цифру, соответствующую необходимому критерию фильтра: \n"+
+                "1 - ОЗУ\n" +
+                "2 - Объем ЖД\n" +
+                "3 - Операционная система\n" +
+                "4 - Цвет");
+        int input3 = scanner.nextInt();
+        switch (input3) {
+            case 1:
+                System.out.println("Вы выбрали фильтр по параметру " + "1 - ОЗУ");
+                break;
+            case 2:
+                System.out.println("Вы выбрали фильтр по параметру " + "2 - Объем ЖД");
+                break;
+            case 3:
+                System.out.println("Вы выбрали фильтр по параметру " + "3 - Операционная система");
+                break;
+            case 4:
+                System.out.println("Вы выбрали фильтр по параметру " + "4 - Цвет");
+                break;
+            default:
+                System.out.printf("Неверная команда: " + input3 + "\n");
+                break;
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите номер команды и нажмите Enter: \n" +
@@ -99,32 +126,13 @@ public class Laptop {
                     print(notes);
                     break;
                 case 3:
-                    System.out.println("Введите цифру, соответствующую необходимому критерию фильтра: \n"+
-                            "1 - ОЗУ\n" +
-                            "2 - Объем ЖД\n" +
-                            "3 - Операционная система\n" +
-                            "4 - Цвет");
-                    int input3 = scanner.nextInt();
-                    switch (input3) {
-                        case 1:
-                            System.out.println("Вы выбрали фильтр по параметру " + "1 - ОЗУ");
-                            break;
-                        case 2:
-                            System.out.println("Вы выбрали фильтр по параметру " + "2 - Объем ЖД");
-                            break;
-                        case 3:
-                            System.out.println("Вы выбрали фильтр по параметру " + "3 - Операционная система");
-                            break;
-                        case 4:
-                            System.out.println("Вы выбрали фильтр по параметру " + "4 - Цвет");
-                            break;
-                        default:
-                            System.out.printf("Неверная команда: " + input3 + ". Попробуйте снова\n");
-                    }
+                    filterOperration(scanner);
+                    break;
                 default:
                     System.out.printf("Неверная команда: " + n + ". Попробуйте снова\n");
-
+                    break;
             }
         }
     }
+
 }
