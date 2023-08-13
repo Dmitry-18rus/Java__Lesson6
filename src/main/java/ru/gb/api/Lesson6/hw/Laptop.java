@@ -99,7 +99,7 @@ public class Laptop {
                     print(notes);
                     break;
                 case 3:
-                    System.out.println("Введите цифру, соответствующую необходимому критерию фильтра: \n" +
+                    System.out.println("Введите цифру, соответствующую необходимому критерию фильтра: \n"+
                             "1 - ОЗУ\n" +
                             "2 - Объем ЖД\n" +
                             "3 - Операционная система\n" +
@@ -121,6 +121,9 @@ public class Laptop {
                         default:
                             System.out.printf("Неверная команда: " + input3 + ". Попробуйте снова\n");
                     }
+                default:
+                    System.out.printf("Неверная команда: " + n + ". Попробуйте снова\n");
+
             }
         }
     }
