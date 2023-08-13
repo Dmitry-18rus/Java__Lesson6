@@ -105,12 +105,30 @@ public class Laptop {
                     }
                 for (String s : temp) {
                     if (s != null) {
-                        System.out.println("s = " + s);
+                        System.out.println(s);
                     }
                 }
                 break;
             case 2:
                 System.out.println("Вы выбрали фильтр по параметру " + "2 - Объем ЖД");
+                count = 0;
+                temp = new String[notes.size()];
+                System.out.println("Введите минимальное значение фильтра = ");
+                min = scanner.nextInt();
+                System.out.println("Введите максимальное значение фильтра = ");
+                max = scanner.nextInt();
+                for (Note elem : notes) {
+//                    System.out.println(elem.toFilterRAM());
+                    if (elem.toFilterHard() >= min && elem.toFilterHard() <= max) {
+                        temp[count] = elem.toString();
+                        count++;
+                    }
+                }
+                for (String s : temp) {
+                    if (s != null) {
+                        System.out.println(s);
+                    }
+                }
                 break;
             case 3:
                 System.out.println("Вы выбрали фильтр по параметру " + "3 - Операционная система");

@@ -16,4 +16,7 @@ public class Note {
     public Integer toFilterRAM() {
         return (capacity_RAM);
     }
+    public Integer toFilterHard() {
+        return (capacity_hard);
+    }
 }
