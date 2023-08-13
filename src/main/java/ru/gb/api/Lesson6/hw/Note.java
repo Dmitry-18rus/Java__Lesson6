@@ -19,4 +19,9 @@ public class Note {
     public Integer toFilterHard() {
         return (capacity_hard);
     }
+    public String toFilterOS() {
+        String res = String.format("%s", type_OS);
+        return res;
+    }
 }
+
