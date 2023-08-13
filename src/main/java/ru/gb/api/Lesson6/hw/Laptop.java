@@ -151,6 +151,22 @@ public class Laptop {
                 break;
             case 4:
                 System.out.println("Вы выбрали фильтр по параметру " + "4 - Цвет");
+                count = 0;
+                temp = new String[notes.size()];
+                System.out.println("Введите цвет = ");
+                scanerStr = scanner.next();
+                for (Note elem : notes) {
+//                    System.out.println(elem.toFilterRAM());
+                    if (elem.toFilterColor().contains(scanerStr)) {
+                        temp[count] = elem.toString();
+                        count++;
+                    }
+                }
+                for (String s : temp) {
+                    if (s != null) {
+                        System.out.println(s);
+                    }
+                }
                 break;
             default:
                 System.out.printf("Неверная команда: " + input3 + "\n");
@@ -158,16 +174,8 @@ public class Laptop {
         }
     }
 
-
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите номер команды и нажмите Enter: \n" +
-                "1 - просмотр списка ноутбуков;\n" +
-                "2 - занести в базу новый ноутбук;\n" +
-                "3 - сделать выборку с фильтрацией\n" +
-                "100 - для выхода из программы\n");
+    private static void inputComand(Scanner scanner, LinkedHashSet<Note> notes) {
         int n;
-        LinkedHashSet<Note> notes = new LinkedHashSet<Note>(createData());
         while (((n = scanner.nextInt()) < 99 || n > 999)) {
             switch (n) {
                 case 1:
@@ -186,5 +194,15 @@ public class Laptop {
             }
         }
     }
-
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите номер команды и нажмите Enter: \n" +
+                "1 - просмотр списка ноутбуков;\n" +
+                "2 - занести в базу новый ноутбук;\n" +
+                "3 - сделать выборку с фильтрацией\n" +
+                "100 - для выхода из программы\n");
+        int n;
+        LinkedHashSet<Note> notes = new LinkedHashSet<Note>(createData());
+        inputComand(scanner, notes);
+    }
 }

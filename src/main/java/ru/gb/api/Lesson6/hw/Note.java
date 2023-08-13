@@ -20,8 +20,12 @@ public class Note {
         return (capacity_hard);
     }
     public String toFilterOS() {
-        String res = String.format("%s", type_OS);
-        return res;
+        String res1 = String.format("%s", type_OS);
+        return res1;
+    }
+    public String toFilterColor() {
+        String res2 = String.format("%s", color);
+        return res2;
     }
 }
 
