@@ -14,7 +14,7 @@ public class Note {
     }
 
     public String toFilter() {
-        String filter = String.format("id:%d RAM:%d HARD:%d OS:%s col:%s", id, capacity_RAM, capacity_hard, type_OS, color)
+        String filter = String.format("id:%d RAM:%d HARD:%d OS:%s col:%s", id, capacity_RAM, capacity_hard, type_OS, color);
         return filter;
     }
 }

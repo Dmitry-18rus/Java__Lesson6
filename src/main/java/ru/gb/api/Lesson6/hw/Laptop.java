@@ -120,7 +120,6 @@ public class Laptop {
                             break;
                         default:
                             System.out.printf("Неверная команда: " + input3 + ". Попробуйте снова\n");
-
                     }
             }
         }
