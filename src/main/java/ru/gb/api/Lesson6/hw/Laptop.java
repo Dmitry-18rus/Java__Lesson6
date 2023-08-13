@@ -80,8 +80,8 @@ public class Laptop {
         System.out.println("Внесен новый ноутбук с id = " + n.id);
     }
 
-    private static void filterOperration(Scanner scanner) {
-        System.out.println("Введите цифру, соответствующую необходимому критерию фильтра: \n"+
+    private static void filterOperration(Scanner scanner, LinkedHashSet<Note> notes) {
+        System.out.println("Введите цифру, соответствующую необходимому критерию фильтра: \n" +
                 "1 - ОЗУ\n" +
                 "2 - Объем ЖД\n" +
                 "3 - Операционная система\n" +
@@ -90,6 +90,24 @@ public class Laptop {
         switch (input3) {
             case 1:
                 System.out.println("Вы выбрали фильтр по параметру " + "1 - ОЗУ");
+                int count = 0;
+                String[] temp = new String[notes.size()];
+                System.out.println("Введите минимальное значение фильтра = ");
+                Integer min = scanner.nextInt();
+                System.out.println("Введите максимальное значение фильтра = ");
+                int max = scanner.nextInt();
+                for (Note elem : notes) {
+//                    System.out.println(elem.toFilterRAM());
+                        if (elem.toFilterRAM() >= min && elem.toFilterRAM() <= max) {
+                            temp[count] = elem.toString();
+                            count++;
+                        }
+                    }
+                for (String s : temp) {
+                    if (s != null) {
+                        System.out.println("s = " + s);
+                    }
+                }
                 break;
             case 2:
                 System.out.println("Вы выбрали фильтр по параметру " + "2 - Объем ЖД");
@@ -126,7 +144,7 @@ public class Laptop {
                     print(notes);
                     break;
                 case 3:
-                    filterOperration(scanner);
+                    filterOperration(scanner, notes);
                     break;
                 default:
                     System.out.printf("Неверная команда: " + n + ". Попробуйте снова\n");

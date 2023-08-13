@@ -13,8 +13,7 @@ public class Note {
         return res;
     }
 
-    public String toFilter() {
-        String filter = String.format("id:%d RAM:%d HARD:%d OS:%s col:%s", id, capacity_RAM, capacity_hard, type_OS, color);
-        return filter;
+    public Integer toFilterRAM() {
+        return (capacity_RAM);
     }
 }
